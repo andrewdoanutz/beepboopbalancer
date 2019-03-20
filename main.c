@@ -1,12 +1,4 @@
-/*
-===============================================================================
- Name        : dac_output.c
- Author      : $(author)
- Version     :
- Copyright   : $(copyright)
- Description : main definition
-===============================================================================
-*/
+
 
 #include "board.h"
 #include <stdlib.h>
@@ -169,15 +161,15 @@ int main(void) {
 
 
 	//freq sounds to play through DAC
-	uint16_t  freq_sound9 = 0x0F6;
-	uint16_t  freq_sound1 = 0x0DC;
-	uint16_t  freq_sound2 = 0x0C4;
-	uint16_t  freq_sound3 = 0x0AE;
-	uint16_t  freq_sound4 = 0x0AE;
-	uint16_t  freq_sound5 = 0x0AE;
-	uint16_t  freq_sound6 = 0x0A4;
-	uint16_t  freq_sound7 = 0x092;
-	uint16_t  freq_sound8 = 0x082;
+	uint16_t  freq_sound1 = 0x0F6;
+	uint16_t  freq_sound2 = 0x0DC;
+	uint16_t  freq_sound3 = 0x0C4;
+	uint16_t  freq_sound4 = 0x000;
+	uint16_t  freq_sound5 = 0x000;
+	uint16_t  freq_sound6 = 0x000;
+	uint16_t  freq_sound7 = 0x0A4;
+	uint16_t  freq_sound8 = 0x092;
+	uint16_t  freq_sound9 = 0x082;
 
 
 	//y axis and other temp variables
@@ -251,7 +243,7 @@ int main(void) {
 			/* Change Pitch and LED state based on position*/
 			if (y > 14500 )
 			{
-				tmp += (freq_sound9 % DATA_SIZE);
+				tmp += (freq_sound1 % DATA_SIZE);
 				if (tmp == (DATA_SIZE - 1)) {
 					tmp = 0;
 				}
@@ -303,7 +295,7 @@ int main(void) {
 			}
 			else if ((y < 1000) && (y > -1000))
 			{
-				tmp += (freq_sound1 % DATA_SIZE);
+				tmp += (freq_sound5 % DATA_SIZE);
 				if (tmp == (DATA_SIZE - 1)) {
 					tmp = 0;
 				}
@@ -316,7 +308,7 @@ int main(void) {
 			}
 			else if ((y < -1000) && (y > -5000))
 			{
-				tmp += (freq_sound5 % DATA_SIZE);
+				tmp += (freq_sound6 % DATA_SIZE);
 				if (tmp == (DATA_SIZE - 1)) {
 					tmp = 0;
 				}
@@ -329,7 +321,7 @@ int main(void) {
 			}
 			else if ((y < -5000) && (y > -10000))
 			{
-				tmp += (freq_sound6 % DATA_SIZE);
+				tmp += (freq_sound7 % DATA_SIZE);
 				if (tmp == (DATA_SIZE - 1)) {
 					tmp = 0;
 				}
@@ -342,7 +334,7 @@ int main(void) {
 			}
 			else if ((y < -10000) && (y > -15000))
 			{
-				tmp += (freq_sound7 % DATA_SIZE);
+				tmp += (freq_sound8 % DATA_SIZE);
 				if (tmp == (DATA_SIZE - 1)) {
 					tmp = 0;
 				}
@@ -355,7 +347,7 @@ int main(void) {
 			}
 			else if (y < -15000)
 			{
-				tmp += (freq_sound8 % DATA_SIZE);
+				tmp += (freq_sound9 % DATA_SIZE);
 				if (tmp == (DATA_SIZE - 1)) {
 					tmp = 0;
 				}
